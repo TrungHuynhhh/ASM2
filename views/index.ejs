@@ -1,0 +1,106 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ATN Toys</title>
+        <style>
+            body {
+                background-color: aquamarine;
+            }
+            h1 {
+                color: green;
+                font-size: 3rem;
+                margin-top: 2rem;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .form_container {
+                background-color:antiquewhite;
+                border-radius: 10px;
+                box-shadow: 0 0 10px black;
+                margin: 2rem auto;
+                padding: 1rem;
+                text-align: center;
+                width: 80%;
+            }
+            form input[type="text"] {
+                border-radius: 5px;
+                border: none;
+                box-shadow: 0 0 5px black;
+                margin: 0.5rem;
+                padding: 0.5rem;
+                width: 30%;
+            }
+            form button[type="submit"] {
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                color: white;
+                cursor: pointer;
+                margin: 0.5px;
+                padding: 10px;
+            }
+            form button[type="submit"]:hover {
+                background-color: black;
+            }
+            .quote_list {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-top: 2rem;
+            }
+            .quote {
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px black;
+                margin: 1rem;
+                padding: 1rem;
+                text-align: center;
+                width: 50%;
+            }
+            #product {
+                color: red;
+                text-transform: uppercase;
+            }
+            h2 {
+                text-transform: uppercase;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <h1>ATN TOYS</h1>
+        
+        <!-- (1): CREATE Task -->         
+        <!-- --> 
+        <div class="form_container">
+        <form action="/quotes" method="POST">   
+            <input type="text" placeholder="Toy's name" name="name" />        
+            <input type="text" placeholder="Price" name="price" />
+            <button type="submit">Add product</button>
+        </form>
+        </div>
+        <!-- -->                               
+
+        <!-- (2) READ Task -->
+        <div class="quote_list">                       
+        <h2 id="product"> Product </h2>
+            <!-- Loop through quotes -->
+            <% for(var i = 0; i < quotes.length; i++) {%>
+                <div class="quote">
+                    <!-- Output name from the iterated quote object -->
+                    <span><span>Name's Toy: </span><%= quotes[i].name %></span> <br>
+                    <!-- Output quote from the iterated quote object -->
+                    <span><span>Price: </span><%= quotes[i].price %></span> <br>
+                    
+                </div>
+            <% } %>
+        </div>
+
+        
+    </body>
+
+</html>
